@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="burger-pic"></div>
+    <h1>EAT A BURGER</h1>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 un-ate-burgers">
+        <ul>
+            {{#each burgers}}
+                <li>
+                    <p>{{this.id}}. {{this.burger_name}}</p>
+                    <button data-id="{{this.id}}" class="eat-burger">Eat It</button>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ate-burgers">
+        <ul>
+            {{#each burgers}}
+                <li>
+                    <p>{{this.id}}. {{this.burger_name}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<form>
+    <input type="text" name="new-burger">
+    <button type="submit">Submit</button>
+    <label>Enter a burger you want to eat. Click Submit.</label>
+</form>
+
