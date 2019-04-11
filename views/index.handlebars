@@ -1,17 +1,14 @@
 <div class="container">
     <div class="row">
-        <div class="burger-pic"></div>
-        <h1>EAT A BURGER</h1>
+        <img src="assets/img/burger.png" width="300px" class="burger-pic">
+        <h1 class="title">EAT A BURGER, ALREADY</h1>
     </div>
-    <div class="row">
+    <div class="row clearfix">
         <div class="col-sm-6 col-left">
             <table>
                 {{#each burgers}}
                     {{#unless devoured}}
-                        <tr class="table-row">
-                            <td class="table-first-col">{{id}}. {{burger_name}}</td>
-                            <td><button class="change-devour" data-id="{{id}}">Devour it!</button></td> 
-                        </tr>
+                        {{> burgers/burger-block}}
                     {{/unless}}
                 {{/each}}
             </table>
@@ -24,11 +21,11 @@
             {{/each}}
         </div>
     </div>
-    <form class="create-form">
-        <div class="form-group">
+    <form class="create-form bottom-div">
+        <div class="form-group burger-form">
             <label for="name"></label>
             <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What kind of burger do you want?"></textarea>
         </div>
-        <button type="submit">Add Burger</button>
+        <button id="burger-button" type="submit">Add Burger</button>
     </form>
 </div>

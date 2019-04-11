@@ -8,7 +8,7 @@ function questionMarks(num){
     return arr.toString();
 };
 
-function toSql(obj){
+function objToSql(obj){
     var arr = [];
     for (var key in obj) {
         var value = obj[key];
@@ -37,13 +37,6 @@ var orm = {
             cb(result);
         });
     },
-    allOrder: function(table, orderCol, cb) {
-        var queryString = "SELECT * FROM " + table + " ORDER BY " + orderCol + " DESC";
-        connection.query(queryString, function(err, result){
-            if (err) {throw err};
-            cb(result);
-        });
-    },
     create: function(table, cols, vals, cb){
         var queryString = "INSERT INTO " + table;
         queryString += " (";
@@ -58,13 +51,13 @@ var orm = {
             cb(result);
         });
     },
-    update: function (table, objColVals, condtion, cb) {
+    update: function (table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
-        connection.query(queryString, vals, function(err, result){
+        connection.query(queryString, function(err, result){
             if (err) {throw err}
             cb(result);
         });
